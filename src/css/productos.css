@@ -1,0 +1,158 @@
+.alto-rendimiento {
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+  }
+  
+  .alto-rendimiento h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .destacados {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .tarjeta {
+    flex: 1;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    min-height: 180px;
+  }
+  
+  .tarjeta img {
+    object-fit: cover;
+    width: 50%;
+    height: 100%;
+  }
+  
+  .tarjeta .contenido {
+    padding: 20px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contenido p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }  
+  .tarjeta.azul {
+    background-image: url('https://sdinternational.com/wp-content/uploads/2020/11/paint.jpg');
+    background-size: cover;
+  }
+  
+  .tarjeta.amarilla {
+    background-image: url('https://img.freepik.com/fotos-premium/rolo-de-pintura-e-pincel-para-pintar-e-reparar-paredes-em-fundo-amarelo_420001-5707.jpg');
+    background-size: cover;
+    color: #000;
+  }
+  
+  .boton {
+    margin-top: 10px;
+    background: white;
+    color: black;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    width: fit-content;
+  }
+  
+  .boton.negro {
+    background: #000;
+    color: #fff;
+  }
+  .categorias {
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+  }
+  
+  .categorias h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  
+  .categoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    height: 100px;
+  }
+  
+  .categoria img {
+    width: 80px;
+    height: auto;
+  }
+  
+  .texto {
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .products-display-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .pagination {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .page {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .page:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .page.active {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+  }
+  
+  .dots {
+    padding: 6px 12px;
+    color: #999;
+    font-size: 14px;
+  }
+  

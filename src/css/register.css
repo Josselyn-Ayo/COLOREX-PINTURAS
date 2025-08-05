@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .required {
+    color: red;
+  }  
+  
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .input-box {
+    margin-bottom: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-box label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .input-box input,
+  .input-box select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .checkbox {
+    margin: 15px 0;
+    font-size: 13px;
+  }
+  
+  .checkbox input {
+    margin-right: 5px;
+  }
+
+  .opcional {
+    color: #666;
+  }
+  
+  .checkbox a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+.terms-blue {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: lighter;
+  }
+
+  .forgot-password  {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: lighter;
+    position: relative;
+    left: 65%;
+  }
+  
+  button[type="submit"] {
+    width: 20%;
+    padding: 13px;
+    background-color: #1B78D2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    left: 40%;
+  }
+  
+  .login-text {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .login-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  hr {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .alt-text {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .social-buttons button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .input-box {
+    max-width: 700px;
+  }
+  
+  .social-buttons img {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: -2px;
+    left: -7px
+  }
+  
+  .payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .payment-methods img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  strong {
+    font-weight: bold;
+    color: #000;
+  }
+
+  footer {
+    margin-bottom: 150px;
+  }
