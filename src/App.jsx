@@ -5,6 +5,7 @@ import Contactos from './pages/Contactos';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import './App.css'
 import Producto from './pages/Producto';
+import Index from './pages/Index';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/index" element={<Index />} />
         <Route path="/abaut" element={<Abaut />} />
         <Route path="/producto" element={<Producto />} />
         <Route path="/contactos" element={<Contactos />} />
