@@ -1,6 +1,13 @@
+import Footer from '../component/Footer';
+import Header from '../component/Header';
+import Main from '../component/Main';
+import MainProducto from '../component/MainProducto';
 function Index(){
     return(
 <>
+ <Header/>
+  <Main/>
+  <MainProducto/>
         <div className="title">
     <span>Categorías Populares</span> Productos Recomendados
   </div>
@@ -437,8 +444,10 @@ function Index(){
   </div>
 </div>
 </div>
+ <Footer/>
 </>
 
 
     );
 }
+export default Index;

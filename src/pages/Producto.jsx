@@ -1,4 +1,5 @@
 import Header from '../component/Header';
+import Main from '../component/Main';
 import MainProducto from '../component/MainProducto';
 import Footer from '../component/Footer';
 import '../css/productos.css';
@@ -6,6 +7,7 @@ function Producto(){
     return(
     <>
     <Header/>
+     <Main/>
      <MainProducto/>
         <section class="alto-rendimiento">
     <h2>PINTURAS Y ACCESORIOS DE ALTO RENDIMIENTO</h2>
