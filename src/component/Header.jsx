@@ -4,8 +4,8 @@ function Header(){
   <header className="header">
     <div className="header-container">
       <div className="logo">
-        <a href="/">
-            <img className="colorex" src="../../public/images/logo/logo-colorex.png" alt="Colorex" /> </a>
+        <Link to="/index">
+            <img className="colorex" src="../../public/images/logo/logo-colorex.png" alt="Colorex" /> </Link>
       </div>
       <div className="search-container">
         <div className="search-bar">

@@ -15,7 +15,7 @@ function Main(){
             </div>
           </div>
           <div class="nav-links">
-            <a href="/products">Productos</a>
+            <Link to="/producto">Productos</Link>
             <Link to="/abaut">Nosotros</Link>
             <Link to="/contactos">Contacto</Link>
           </div>

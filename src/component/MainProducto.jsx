@@ -1,4 +1,4 @@
-function Producto(){
+function MainProducto(){
     return(
         <div className="main-section">
     <div className="section">
@@ -24,4 +24,4 @@ function Producto(){
     )
 
 }
-export default Producto;
+export default MainProducto;
