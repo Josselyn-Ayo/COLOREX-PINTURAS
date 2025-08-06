@@ -1,3 +1,4 @@
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import "../css/register.css";
 import Header from "../component/Header";
@@ -7,9 +8,12 @@ import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { authFirebase, dbFirebase } from "../firebase";
 import { setDoc, doc } from "firebase/firestore";
+import { CartContext } from '../CartContext';
 
 function Register() {
+  const { carrito, carritoInfo } = useContext(CartContext);
   const navigate = useNavigate();
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const {
     register,
@@ -21,16 +25,21 @@ function Register() {
   const handleRegister = async (data) => {
     const { email, password, name, apellido, telefono, ciudad } = data;
 
+    if (!acceptedTerms) {
+      alert("Debes aceptar los términos y condiciones.");
+      return;
+    }
+
     try {
-      await createUserWithEmailAndPassword(authFirebase, email, password);
-      const user = authFirebase.currentUser;
+      const userCredential = await createUserWithEmailAndPassword(authFirebase, email, password);
+      const user = userCredential.user;
 
       if (user) {
         await setDoc(doc(dbFirebase, "users", user.uid), {
           nombre: name,
           apellido: apellido,
           email: email,
-          telefono: telefono || "", 
+          telefono: telefono || "", // por si no pone nada
           ciudad: ciudad,
         });
       }
@@ -45,8 +54,9 @@ function Register() {
 
   return (
     <>
-      <Header />
+      <Header carrito={carrito} carritoInfo={carritoInfo} />
       <Main />
+
       <div className="container">
         <h2>Registrarse</h2>
         <p>Vamos a prepararte para que puedas acceder a tu cuenta personal.</p>
@@ -74,14 +84,26 @@ function Register() {
 
           <div className="input-box">
             <label>Teléfono <span className="opcional">(Opcional)</span></label>
-            <input type="tel" {...register("telefono")} />
+            <input
+              type="tel"
+              {...register("telefono", {
+                pattern: {
+                  value: /^[0-9]{7,15}$/,
+                  message: "Número inválido",
+                },
+              })}
+            />
+            {errors.telefono && <p className="error">{errors.telefono.message}</p>}
           </div>
 
           <div className="input-box">
             <label>Ciudad / Región <span className="required">*</span></label>
             <select {...register("ciudad", { required: "Selecciona una ciudad" })}>
               <option value="">-- Selecciona una opción --</option>
-              <option value="ecuador">Ecuador (ECU)</option>
+              <option value="quito">Quito</option>
+              <option value="guayaquil">Guayaquil</option>
+              <option value="cuenca">Cuenca</option>
+              <option value="ecuador">Otra ciudad en Ecuador</option>
             </select>
             {errors.ciudad && <p className="error">{errors.ciudad.message}</p>}
           </div>
@@ -110,13 +132,16 @@ function Register() {
                 validate: (value) => value === watch("password") || "Las contraseñas no coinciden",
               })}
             />
-            {errors.confirmPassword && (
-              <p className="error">{errors.confirmPassword.message}</p>
-            )}
+            {errors.confirmPassword && <p className="error">{errors.confirmPassword.message}</p>}
           </div>
 
           <div className="checkbox">
-            <input type="checkbox" id="terms" required />
+            <input
+              type="checkbox"
+              id="terms"
+              checked={acceptedTerms}
+              onChange={(e) => setAcceptedTerms(e.target.checked)}
+            />
             <label htmlFor="terms">
               Acepto todos los <a className="terms-blue" href="#">Términos y Políticas de Privacidad</a>
             </label>
@@ -132,11 +157,12 @@ function Register() {
         <hr />
         <p className="alt-text">Regístrate con</p>
         <div className="social-buttons">
-          <button className="facebook"><img src="images/icons/facebook.png" alt="" /></button>
-          <button className="google"><img src="images/icons/google.png" alt="" /></button>
-          <button className="apple"><img src="images/icons/apple.png" alt="" /></button>
+          <button className="facebook"><img src="images/icons/facebook.png" alt="Facebook" /></button>
+          <button className="google"><img src="images/icons/google.png" alt="Google" /></button>
+          <button className="apple"><img src="images/icons/apple.png" alt="Apple" /></button>
         </div>
       </div>
+
       <Footer />
     </>
   );

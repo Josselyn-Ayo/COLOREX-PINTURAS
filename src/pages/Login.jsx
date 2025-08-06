@@ -1,3 +1,4 @@
+import React, { useState, useContext } from 'react'; // Agrega useContext aquí
 import { useForm } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { authFirebase, dbFirebase } from "../firebase"; // ajusta si tu ruta es diferente
@@ -7,8 +8,11 @@ import Header from "../component/Header";
 import Main from "../component/Main";
 import Footer from "../component/Footer";
 import "../css/register.css";
+import { CartContext } from '../CartContext'; // Asegúrate de que la ruta sea correcta
 
 function Login() {
+  const { carrito, carritoInfo } = useContext(CartContext);
+  
   const navigate = useNavigate();
   const {
     register,
@@ -49,9 +53,10 @@ function Login() {
       alert("Correo o contraseña incorrectos");
     }
   };
+
   return (
     <>
-      <Header />
+      <Header carrito={carrito} carritoInfo={carritoInfo} />
       <Main />
       <div className="container">
         <h2>Iniciar Sesión</h2>
