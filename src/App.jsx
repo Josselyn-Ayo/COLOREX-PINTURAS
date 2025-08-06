@@ -7,9 +7,8 @@ import Abaut from './pages/Abaut';
 import Contactos from './pages/Contactos';
 import Producto from './pages/Producto';
 import Index from './pages/Index';
-
-// IMPORTA TUS PÁGINAS DEL ADMINISTRADOR
 import AdminDashboard from './Administrador/AdminDashboard'
+import Cajero from './pages/Cajero';
 
 
 function App() {
@@ -27,6 +26,8 @@ function App() {
 
         {/* RUTAS DE ADMINISTRADOR */}
         <Route path="/adminDashboard" element={<AdminDashboard />} />
+        {/*RUTAS DE CAJERO */}
+        <Route path="/cajero" element={<Cajero />} />
         
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,72 @@
+.gestion-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.gestion-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.formulario-producto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.formulario-producto input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.formulario-producto button {
+  padding: 10px;
+  border: none;
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formulario-producto button:hover {
+  background-color: #0070cc;
+}
+
+.tabla-productos h3 {
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+table img {
+  border-radius: 4px;
+}
+
+table button {
+  margin: 0 4px;
+  padding: 6px 10px;
+  border: none;
+  background-color: #444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table button:hover {
+  background-color: #222;
+}
+

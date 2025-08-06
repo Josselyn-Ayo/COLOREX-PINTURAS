@@ -30,7 +30,7 @@ function Register() {
           nombre: name,
           apellido: apellido,
           email: email,
-          telefono: telefono || "", // por si no pone nada
+          telefono: telefono || "", 
           ciudad: ciudad,
         });
       }

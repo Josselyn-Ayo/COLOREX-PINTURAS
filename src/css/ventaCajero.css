@@ -1,0 +1,152 @@
+
+.ventas-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-regresar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.btn-regresar:hover {
+  background-color: #0056b3;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ventas-seccion {
+  margin-bottom: 25px;
+}
+
+.ventas-seccion label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+  gap: 15px;
+}
+
+.producto-card {
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.producto-card h4 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.producto-card p {
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.producto-card button {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.producto-card button:hover {
+  background-color: #1e7e34;
+}
+
+.item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.item-carrito span {
+  flex: 1;
+  font-size: 15px;
+  color: #333;
+}
+
+.item-carrito input[type="number"] {
+  width: 60px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  text-align: center;
+}
+
+.item-carrito button {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.item-carrito button:hover {
+  background-color: #a71d2a;
+}
+
+h4 {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #222;
+}
+
+button {
+  margin-top: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
