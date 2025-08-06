@@ -3,6 +3,7 @@ import '../css/AdminDashboard.css';
 import PerfilAdmin from "./PerfilAdmin";
 import Ventas from "./Ventas";
 import AgregarVenta from "./AgregarVenta"; 
+import Stock from "./Stock"; 
 
 function AdminDashboard() {
   const [vista, setVista] = useState("inicio");
@@ -19,7 +20,9 @@ function AdminDashboard() {
       case "ventas":
         return <Ventas />;
       case "agregarVenta":
-        return <AgregarVenta />; 
+        return <AgregarVenta />;
+      case "Stock":
+        return <Stock />; 
       case "inicio":
       default:
         return (
@@ -28,8 +31,9 @@ function AdminDashboard() {
             <p>Controla las ventas, productos y usuarios desde aquí.</p>
 
             <div className="admin-buttons">
-                <button className="btn-primary" onClick={() => setVista("agregarVenta")}>Agregar Venta</button>
-                <button className="btn-secondary" onClick={() => setVista("ventas")}>Ver Reportes</button>
+              <button className="btn-primary" onClick={() => setVista("agregarVenta")}>Agregar Venta</button>
+              <button className="btn-secondary" onClick={() => setVista("ventas")}>Ver Reportes</button>
+              <button className="btn-secondary" onClick={() => setVista("Stock")}>Ver Stock</button>
             </div>
           </>
         );
@@ -45,7 +49,9 @@ function AdminDashboard() {
             <li><button onClick={() => setVista("perfil")}>Perfil</button></li>
             <li><button onClick={() => setVista("ventas")}>Ventas</button></li>
             <li><button onClick={() => setVista("agregarVenta")}>Agregar Venta</button></li>
+            <li><button onClick={() => setVista("Stock")}>Ver Stock</button></li>
             <li><button onClick={handleLogout}>Cerrar sesión</button></li>
+            
           </ul>
         </nav>
       </aside>
@@ -58,4 +64,3 @@ function AdminDashboard() {
 }
 
 export default AdminDashboard;
-
