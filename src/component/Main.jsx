@@ -2,11 +2,11 @@ import '../css/style.css';
 import { Link } from "react-router-dom";
 function Main(){
     return(
-        <div class="navbar">
-        <div class="nav-left">
-          <div class="dropdown">
-            <div class="dropdown-button">Otros Productos <i class="fas fa-chevron-down"></i></div>
-            <div class="dropdown-content">
+        <div className="navbar">
+        <div className="nav-left">
+          <div className="dropdown">
+            <div className="dropdown-button">Otros Productos <i class="fas fa-chevron-down"></i></div>
+            <div className="dropdown-content">
               <a href="#">Pinturas Interiores</a>
               <a href="#">Pinturas Exteriores</a>
               <a href="#">Pinturas Para Autos</a>
