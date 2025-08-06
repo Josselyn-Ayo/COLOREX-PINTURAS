@@ -33,7 +33,7 @@ function Login() {
 
         // Redirección según el rol
         if (rol === "admin") {
-          navigate("/admin");
+          navigate("/adminDashboard");
         } else if (rol === "cajero") {
           navigate("/cajero");
         } else {
@@ -41,7 +41,7 @@ function Login() {
         }
       } else {
         // Si no existe el documento del usuario, lo tratamos como usuario común
-        navigate("/tienda");
+        navigate("/index");
       }
 
     } catch (error) {

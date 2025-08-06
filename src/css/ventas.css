@@ -1,0 +1,33 @@
+.ventas-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 2px solid #007bff;
+  border-radius: 15px;
+  background-color: #e6f0ff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.ventas-container h2 {
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.ventas-loading {
+  font-size: 18px;
+  color: #666;
+}
+
+.ventas-total {
+  font-size: 24px;
+  font-weight: bold;
+  color: #004080;
+  margin: 0.5rem 0;
+}
+
+.ventas-info {
+  font-size: 16px;
+  color: #004080;
+  margin-top: 0;
+}

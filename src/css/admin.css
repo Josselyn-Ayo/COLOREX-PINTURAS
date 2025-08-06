@@ -1,0 +1,61 @@
+.perfil-admin {
+  width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.perfil-admin h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.perfil-admin form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.perfil-admin label {
+  font-weight: bold;
+  color: #444;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.perfil-admin input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.perfil-admin .boton-guardar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.perfil-admin button {
+  padding: 12px;
+  width: 250px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.perfil-admin button:hover {
+  background-color: #0056b3;
+}
+

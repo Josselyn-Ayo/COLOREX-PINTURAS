@@ -1,0 +1,69 @@
+.agregar-venta-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #fafafa;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-venta label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-venta input, .form-venta select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-venta button {
+  padding: 0.7rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-venta button:hover {
+  background-color: #0056b3;
+}
+
+.mensaje {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+}
+
+.tabla-ventas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.tabla-ventas th,
+.tabla-ventas td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.tabla-ventas th {
+  background-color: #007bff;
+  color: white;
+}
+
+.tabla-ventas tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
