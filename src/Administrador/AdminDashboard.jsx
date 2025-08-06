@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../css/AdminDashboard.css';
+import '../css/adminDashboard.css';
 import PerfilAdmin from "./PerfilAdmin";
 import Ventas from "./Ventas";
 import AgregarVenta from "./AgregarVenta"; 
