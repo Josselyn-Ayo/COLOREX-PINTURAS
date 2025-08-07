@@ -56,7 +56,7 @@ function Index(){
   </div>
   <div className="promo-container">
     <div className="promo azul">
-      <div classNmae="texto">
+      <div className="texto">
         <div className="ofert">
         <p className="oferta">OFERTA <br/>DESTACADA</p>
         <p className="precio">$69</p>

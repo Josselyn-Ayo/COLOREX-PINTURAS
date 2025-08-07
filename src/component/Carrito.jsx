@@ -1,13 +1,17 @@
-import { useCart } from "./context/CartContext"; // ajusta la ruta
-import { useState } from "react";
+import { useCart } from "./context/CartContext";
+import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Main from "./Main";
 import { getAuth } from "firebase/auth";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { dbFirebase } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
-
 function Carrito() {
-  const { carrito, eliminarDelCarrito } = useCart();
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const navigate = useNavigate();
+  const { carrito, eliminarDelCarrito, vaciarCarrito, valorTotal } = useCart();
   const [metodoPago, setMetodoPago] = useState("");
 
   const total = carrito.reduce(
@@ -15,8 +19,43 @@ function Carrito() {
     0
   );
 
-  const handlePagar = () => {
-    alert(`Pago realizado con ${metodoPago}. Total: $${total.toFixed(2)}`);
+  useEffect(() => {
+    if (!user) {
+      alert("Debes iniciar sesión para realizar el pago.");
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
+  const handlePagar = async () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Debes iniciar sesión para completar el pago.");
+      navigate("/login");
+      return;
+    }
+
+    const ventaData = {
+      clienteId: user.uid,
+      total: total,
+      metodoPago: metodoPago,
+      fecha: serverTimestamp(),
+      productos: carrito.map((item) => ({
+        nombre: item.title,
+        precio: item.priceCurrent,
+        cantidad: item.quantity,
+      })),
+    };
+
+    try {
+      await addDoc(collection(dbFirebase, "ventas"), ventaData);
+      vaciarCarrito(); // ✅ Esto ahora sí funcionará
+      alert(`Pago realizado con ${metodoPago}. Total: $${total.toFixed(2)}`);
+      navigate("/login");
+    } catch (error) {
+      console.error("Error al registrar venta en Firestore:", error);
+      alert("Hubo un error al registrar la venta. Inténtalo de nuevo.");
+    }
   };
 
   return (

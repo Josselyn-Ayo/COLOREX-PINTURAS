@@ -59,27 +59,27 @@ function Abaut(){
     </div>
 </section>
 
-<section class="features">
-    <div class="container">
-        <div class="features-grid">
-            <div class="feature-item">
-                <h3 class="feature-title">CALIDAD CERTIFICADA, RESULTADOS GARANTIZADOS</h3>
-                <p class="feature-description">En Colorex, trabajamos exclusivamente con proveedores reconocidos y marcas de confianza. Cada producto que recomendamos se alinea con nuestros estándares de alta precisión técnica. Cada compra está protegida por rigurosos controles de adherencia, durabilidad y seguridad.</p>
+<section className="features">
+    <div className="container">
+        <div className="features-grid">
+            <div className="feature-item">
+                <h3 className="feature-title">CALIDAD CERTIFICADA, RESULTADOS GARANTIZADOS</h3>
+                <p className="feature-description">En Colorex, trabajamos exclusivamente con proveedores reconocidos y marcas de confianza. Cada producto que recomendamos se alinea con nuestros estándares de alta precisión técnica. Cada compra está protegida por rigurosos controles de adherencia, durabilidad y seguridad.</p>
             </div>
-            <div class="feature-item">
-                <h3 class="feature-title">ENTREGAS RÁPIDAS, SOLUCIONES SIN ESPERAS</h3>
-                <p class="feature-description">En Colorex, entendemos que el tiempo es clave en tus proyectos. Ya sea que necesites pintura para el salón que renuevas o coating familiar de estilo para terminar un enfoque automotriz fin de semana.</p>
+            <div className="feature-item">
+                <h3 className="feature-title">ENTREGAS RÁPIDAS, SOLUCIONES SIN ESPERAS</h3>
+                <p className="feature-description">En Colorex, entendemos que el tiempo es clave en tus proyectos. Ya sea que necesites pintura para el salón que renuevas o coating familiar de estilo para terminar un enfoque automotriz fin de semana.</p>
             </div>
-            <div class="feature-item">
-                <h3 class="feature-title">PRECIOS JUSTOS, SIN COMPROMETER CALIDAD</h3>
-                <p class="feature-description">En Colorex, creemos que la excelencia no debe costar una fortuna. No hay trucos, hemos creado un modelo de negocio que combina calidad técnica, transparencia y acceso democrático, para que profesionales, familias y entusiastas del DIY.</p>
+            <div className="feature-item">
+                <h3 className="feature-title">PRECIOS JUSTOS, SIN COMPROMETER CALIDAD</h3>
+                <p className="feature-description">En Colorex, creemos que la excelencia no debe costar una fortuna. No hay trucos, hemos creado un modelo de negocio que combina calidad técnica, transparencia y acceso democrático, para que profesionales, familias y entusiastas del DIY.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mision-vision">
-  <div class="bloque">
+<section className="mision-vision">
+  <div className="bloque">
     <h3>NUESTRA MISIÓN</h3>
     <p>En Colorex, transformamos espacios y vehículos con soluciones innovadoras y accesibles, poniendo el poder de la creatividad en manos de todos. Nos comprometemos a:</p>
     <ul>
@@ -90,11 +90,11 @@ function Abaut(){
     </ul>
   </div>
 
-  <div class="imagen-central">
+  <div className="imagen-central">
     <img src="images/stock_pictures/picture_13.png" alt="Trabajador pintando pared" />
   </div>
 
-  <div class="bloque">
+  <div className="bloque">
     <h3>NUESTRA VISIÓN</h3>
     <p>Aspiramos a ser el referente de innovación sostenible en pinturas para hogar y automotriz, reconocidos por:</p>
     <ul>
