@@ -207,7 +207,7 @@ form .fila {
 .imagen {
     position: absolute; 
   top: 0;
-  right: 230px;
+  right: 120px;
   margin-top: 800px;
 }
 
@@ -221,7 +221,7 @@ form .fila {
 /* Map Section */
 .mapa-seccion {
     background-color: #fff;
-    padding: 60px 0;
+    padding: 60px;
 }
 
 .mapa-titulo {

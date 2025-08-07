@@ -363,7 +363,7 @@
     }
 
     .main-image img {
-      max-height: 300px;
+      max-height: 350px;
       object-fit: contain;
     }
 
@@ -377,10 +377,11 @@
         max-width: 100%;
       }
 
-      .main-image {
-        margin-top: 30px;
-      }
+     
     }
+     .main-image {
+        margin-top: 500px;
+      }
 
     .image1 {
       position: absolute;

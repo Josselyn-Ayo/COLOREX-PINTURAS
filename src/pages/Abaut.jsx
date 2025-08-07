@@ -107,12 +107,6 @@ function Abaut(){
   </section>
   <Footer/>
   </>
-
-
-
-
-
-    );
-
+  );
 }
 export default Abaut;

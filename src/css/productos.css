@@ -337,3 +337,72 @@
 .boton-agregar:active {
   transform: scale(0.98);
 }
+
+.carrito-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.carrito-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.carrito-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.carrito-total {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.metodo-pago {
+  margin-top: 20px;
+}
+
+.metodo-seleccionado {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.btn-pagar {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-pagar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.btn-pagar:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.btn-eliminar {
+  margin-left: 10px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background-color: #d9363e;
+}

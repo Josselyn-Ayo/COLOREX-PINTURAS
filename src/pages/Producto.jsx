@@ -1,432 +1,174 @@
+import { Link } from "react-router-dom";
 import Header from '../component/Header';
 import Main from '../component/Main';
 import MainProducto from '../component/MainProducto';
 import Footer from '../component/Footer';
 import '../css/productos.css';
-function Producto(){
-    return(
+import ErrorBoundary from '../component/ErrorBoundary'; // Asegúrate de tener este componente 
+import { useCart } from "../component/context/CartContext";
+
+
+
+function Producto() {
+    const { agregarAlCarrito } = useCart();
+  return (
     <>
-    <Header/>
-     <Main/>
-     <MainProducto/>
-        <section class="alto-rendimiento">
-    <h2>PINTURAS Y ACCESORIOS DE ALTO RENDIMIENTO</h2>
-  
-    <div className="destacados">
-      <div className="tarjeta azul">
-        <div className="contenido">
-          <h3>Revestimientos de Protección</h3>
-          <h3 className="titu">Aislamiento Superior</h3>
-          <p>En Colorex, Fusionamos Tecnología Y Funcionalidad Para Proyectos DIY Y Profesionales, Donde La Eficiencia Se Encuentra Con El Diseño.</p>
-          <a href="#" className="boton">COMPRA AHORA</a>
-        </div>
-      </div>
-  
-      <div className="tarjeta amarilla">
-        <div className="contenido">
-          <h3>Barnices de secado ultrarrápido</h3>
-          <p>Ideal para retoques automotrices</p>
-          <a href="#" className="boton negro">COMPRA AHORA</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section className="categorias">
-    <section className="categorias">
-        <h3>CATEGORIAS POPULARES</h3>
-        <div className="grid-categorias">
-          <div className="categoria">
-            <div className="texto">
-              <strong>Pinturas de Interiores</strong><br/>
-              74 Items
+      <ErrorBoundary>
+        <Header />
+      </ErrorBoundary>
+
+      <Main />
+      <MainProducto />
+
+      <section className="alto-rendimiento">
+        <h2>PINTURAS Y ACCESORIOS DE ALTO RENDIMIENTO</h2>
+
+        <div className="destacados">
+          <div className="tarjeta azul">
+            <div className="contenido">
+              <h3>Revestimientos de Protección</h3>
+              <h3 className="titu">Aislamiento Superior</h3>
+              <p>En Colorex, Fusionamos Tecnología Y Funcionalidad Para Proyectos DIY Y Profesionales, Donde La Eficiencia Se Encuentra Con El Diseño.</p>
+              <a href="#" className="boton">COMPRA AHORA</a>
             </div>
-            <img src="imagenes/products/product_1" alt="Interiores" />
           </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Pinturas Automotrices</strong><br/>
-              35 Items
+
+          <div className="tarjeta amarilla">
+            <div className="contenido">
+              <h3>Barnices de secado ultrarrápido</h3>
+              <p>Ideal para retoques automotrices</p>
+              <a href="#" className="boton negro">COMPRA AHORA</a>
             </div>
-            <img src="images/products/product_12.png" alt="Automotrices" />
-          </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Recubrimientos Exteriores</strong><br/>
-              9 Items
-            </div>
-            <img src="images/products/product_13.png" alt="Exteriores" />
-          </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Imprimaciones y Selladores</strong><br/>
-              58 Items
-            </div>
-            <img src="images/products/product_14.png" alt="Selladores" />
-          </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Efectos Decorativos</strong><br/>
-              12 Items
-            </div>
-            <img src="images/products/product_15.png" alt="Decorativos" />
-          </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Línea Ecológica</strong><br/>
-              22 Items
-            </div>
-            <img src="images/products/product_16.png" alt="Línea Ecológica" />
-          </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Herramientas Profesionales</strong><br/>
-              33 Items
-            </div>
-            <img src="images/products/product_17.png" alt="Herramientas" />
-          </div>
-          <div className="categoria">
-            <div className="texto">
-              <strong>Aislantes Térmicos</strong><br/>
-              5 Items
-            </div>
-            <img src="images/products/product_18.png" alt="Aislantes" />
           </div>
         </div>
       </section>
 
-      <div className="products-display-grid">
-      <div className="product-display-card product-display-1">
-        <div className="product-display-title">Masilla MUSTANG 6032 de dos componentes con resina</div>
-        
-        <div className="product-display-rating">
-            <div className="rating-stars">
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
+      <section className="categorias">
+        <h3>CATEGORIAS POPULARES</h3>
+        <div className="grid-categorias">
+          {[
+            { title: "Pinturas de Interiores", items: 74, img: "images/products/product_11.png", alt: "Interiores" },
+            { title: "Pinturas Automotrices", items: 35, img: "images/products/product_12.png", alt: "Automotrices" },
+            { title: "Recubrimientos Exteriores", items: 9, img: "images/products/product_13.png", alt: "Exteriores" },
+            { title: "Imprimaciones y Selladores", items: 58, img: "images/products/product_14.png", alt: "Selladores" },
+            { title: "Efectos Decorativos", items: 12, img: "images/products/product_15.png", alt: "Decorativos" },
+            { title: "Línea Ecológica", items: 22, img: "images/products/product_16.png", alt: "Línea Ecológica" },
+            { title: "Herramientas Profesionales", items: 33, img: "images/products/product_17.png", alt: "Herramientas" },
+            { title: "Aislantes Térmicos", items: 5, img: "images/products/product_18.png", alt: "Aislantes" },
+          ].map(({ title, items, img, alt }, idx) => (
+            <div className="categoria" key={idx}>
+              <div className="texto">
+                <strong>{title}</strong><br />
+                {items} Items
+              </div>
+              <img src={img} alt={alt} />
             </div>
-            <span className="rating-number">(2)</span>
+          ))}
         </div>
-
-        <div className="product-display-image"><img src="images/products/product_1.png" alt=""/></div>
-
-        <div className="product-display-price">
-            <span className="price-current">$129.00</span>
-            <span className="price-original">$159.00</span>
-            <span className="price-discount-badge">15% OFF</span>
-        </div>
-
-        <div class="product-purchase-info">
-            <span class="product-purchase-count">1.286 compras</span>
-            <button class="product-favorite-btn">♡</button>
-        </div>
-    </div>
-
-    <div className="product-display-card product-display-2">
-        <div className="product-display-title">Covertone - Wesco</div>
-        
-        <div className="product-display-rating">
-            <div className="rating-stars">
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star star-empty">★</span>
-            </div>
-            <span className="rating-number">(7)</span>
-        </div>
-
-        <div className="product-display-image"><img src="images/products/product_2.png" alt=""/></div>
-
-        <div className="product-display-price">
-            <span className="price-current">$1,259.00</span>
-        </div>
-
-        <div className="product-purchase-info">
-            <span className="product-purchase-count">93 compras</span>
-            <button className="product-favorite-btn">♡</button>
-        </div>
-    </div>
-    <div className="product-display-card product-display-3">
-        <div className="product-new-badge">NEW</div>
-        <div className="product-display-title">Esmalte Sintético Pato Pinturas CPP</div>
-        
-        <div className="product-display-rating">
-            <div className="rating-stars">
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span classNane="rating-star">★</span>
-                <span className="rating-star">★</span>
-                <span className="rating-star">★</span>
-            </div>
-        </div>
-
-        <div className="product-display-image"><img src="images/products/product_3.png" alt=""/></div>
-
-        <div className="product-display-price">
-            <span className="price-current">$29.00</span>
-            <span className="price-original">$59.00</span>
-            <span className="price-discount-badge">45% OFF</span>
-        </div>
-
-        <div className="product-purchase-info">
-            <span className="product-purchase-count">256 compras</span>
-            <button className="product-favorite-btn">♡</button>
-        </div>
-    </div>
-    </div>
-    <div className="products-display-grid">
-        <div className="product-display-card product-display-1">
-          <div className="product-display-title">Masilla MUSTANG 6032 de dos componentes con resina</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-              </div>
-              <span className="rating-number">(2)</span>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_1.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$129.00</span>
-              <span className="price-original">$159.00</span>
-              <span className="price-discount-badge">15% OFF</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">1.286 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
-      </div>
-      <div className="product-display-card product-display-2">
-          <div className="product-display-title">Covertone - Wesco</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star star-empty">★</span>
-              </div>
-              <span className="rating-number">(7)</span>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_2.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$1,259.00</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">93 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
-      </div>
-
-      <div className="product-display-card product-display-3">
-          <div className="product-new-badge">NEW</div>
-          <div className="product-display-title">Esmalte Sintético Pato Pinturas CPP</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-              </div>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_3.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$29.00</span>
-              <span className="price-original">$59.00</span>
-              <span className="price-discount-badge">45% OFF</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">256 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
-      </div>
-      </div>
-      <div className="products-display-grid">
-        <div className="product-display-card product-display-1">
-          <div className="product-display-title">Masilla MUSTANG 6032 de dos componentes con resina</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-              </div>
-              <span className="rating-number">(2)</span>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_1.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$129.00</span>
-              <span className="price-original">$159.00</span>
-              <span className="price-discount-badge">15% OFF</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">1.286 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
-      </div>
-  
-    
-      <div className="product-display-card product-display-2">
-          <div className="product-display-title">Covertone - Wesco</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star star-empty">★</span>
-              </div>
-              <span className="rating-number">(7)</span>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_2.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$1,259.00</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">93 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
-      </div>
-  
-      <div className="product-display-card product-display-3">
-          <div className="product-new-badge">NEW</div>
-          <div className="product-display-title">Esmalte Sintético Pato Pinturas CPP</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-              </div>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_3.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$29.00</span>
-              <span className="price-original">$59.00</span>
-              <span className="price-discount-badge">45% OFF</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">256 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
-      </div>
-      </div>
+      </section>
 
       <div className="products-display-grid">
-        <div className="product-display-card product-display-1">
-          <div className="product-display-title">Masilla MUSTANG 6032 de dos componentes con resina</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-              </div>
-              <span className="rating-number">(2)</span>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_1.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$129.00</span>
-              <span className="price-original">$159.00</span>
-              <span className="price-discount-badge">15% OFF</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">1.286 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
+        {[
+          {
+            id: 1,
+            title: "Masilla MUSTANG 6032 de dos componentes con resina",
+            rating: 5,
+            reviews: 2,
+            img: "images/products/product_1.png",
+            priceCurrent: 129.0,
+            priceOriginal: 159.0,
+            discount: 15,
+            purchases: "1.286 compras",
+            isNew: false,
+          },
+          {
+            id: 2,
+            title: "Covertone - Wesco",
+            rating: 4,
+            reviews: 7,
+            img: "images/products/product_2.png",
+            priceCurrent: 1259.0,
+            priceOriginal: null,
+            discount: null,
+            purchases: "93 compras",
+            isNew: false,
+          },
+          {
+            id: 3,
+            title: "Esmalte Sintético Pato Pinturas CPP",
+            rating: 5,
+            reviews: null,
+            img: "images/products/product_3.png",
+            priceCurrent: 29.0,
+            priceOriginal: 59.0,
+            discount: 45,
+            purchases: "256 compras",
+            isNew: true,
+          },
+      ].map(
+  ({
+    id,
+    title,
+    rating,
+    reviews,
+    img,
+    priceCurrent,
+    priceOriginal,
+    discount,
+    purchases,
+    isNew,
+  }) => (
+    <div className="product-display-card" key={id}>
+      {isNew && <div className="product-new-badge">NEW</div>}
+
+      <div className="product-display-title">{title}</div>
+
+      <div className="product-display-rating">
+        <div className="rating-stars">
+          {[...Array(5)].map((_, i) => (
+            <span
+              key={i}
+              className={"rating-star" + (i < rating ? "" : " star-empty")}
+            >
+              ★
+            </span>
+          ))}
+        </div>
+        {reviews !== null && (
+          <span className="rating-number">({reviews})</span>
+        )}
       </div>
-  
-      <div className="product-display-card product-display-2">
-          <div className="product-display-title">Covertone - Wesco</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star star-empty">★</span>
-              </div>
-              <span className="rating-number">(7)</span>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_2.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$1,259.00</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">93 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
+
+      <div className="product-display-image">
+        <img src={img} alt={title} />
       </div>
-  
-      <div className="product-display-card product-display-3">
-          <div className="product-new-badge">NEW</div>
-          <div className="product-display-title">Esmalte Sintético Pato Pinturas CPP</div>
-          
-          <div className="product-display-rating">
-              <div className="rating-stars">
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-                  <span className="rating-star">★</span>
-              </div>
-          </div>
-  
-          <div className="product-display-image"><img src="images/products/product_3.png" alt=""/></div>
-  
-          <div className="product-display-price">
-              <span className="price-current">$29.00</span>
-              <span className="price-original">$59.00</span>
-              <span className="price-discount-badge">45% OFF</span>
-          </div>
-  
-          <div className="product-purchase-info">
-              <span className="product-purchase-count">256 compras</span>
-              <button className="product-favorite-btn">♡</button>
-          </div>
+
+      <div className="product-display-price">
+        <span className="price-current">${priceCurrent.toFixed(2)}</span>
+        {priceOriginal && (
+          <span className="price-original">${priceOriginal.toFixed(2)}</span>
+        )}
+        {discount && (
+          <span className="price-discount-badge">{discount}% OFF</span>
+        )}
       </div>
+
+      <div className="product-purchase-info">
+        <span className="product-purchase-count">{purchases}</span>
+        <button className="product-favorite-btn">♡</button>
       </div>
+
+      {/* ✅ Botón funcional */}
+     <button 
+        onClick={() => agregarAlCarrito({ id, title, priceCurrent})}>
+        Agregar al carrito
+    </button>
+
+    </div>
+            )
+        )}
+        </div>
+
 
       <div className="pagination">
         <button className="page active">1</button>
@@ -437,14 +179,11 @@ function Producto(){
         <button className="page">20</button>
         <button className="page">Próximo</button>
       </div>
-      <Footer/>
-    </section>
-      </>
 
-
-    
-
-
-    );
+      <Footer />
+    </>
+  );
 }
+
+
 export default Producto;
