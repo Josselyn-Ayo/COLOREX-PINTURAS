@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import '../css/adminDashboard.css';
+import { useNavigate } from "react-router-dom"; 
+import '../css/assssdminDashboard.css';
 import PerfilAdmin from "./PerfilAdmin";
 import Ventas from "./Ventas"; 
 import Reportes from "./Reportes";  
@@ -8,10 +9,11 @@ import Stock from "./Stock";
 
 function AdminDashboard() {
   const [vista, setVista] = useState("inicio");
+  const navigate = useNavigate(); 
 
   const handleLogout = () => {
     localStorage.removeItem('token'); 
-    window.location.href = '/login'; 
+    navigate('/login'); 
   };
 
   const renderContenido = () => {
