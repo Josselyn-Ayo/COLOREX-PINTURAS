@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import '../css/assssdminDashboard.css';
+import '../css/adminDashboard.css';
 import PerfilAdmin from "./PerfilAdmin";
 import Ventas from "./Ventas"; 
 import Reportes from "./Reportes";  
