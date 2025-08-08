@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, orderBy, limit, Timestamp } from 'firebase/firestore';
 import { dbFirebase } from '../firebase';
 import '../css/agregarVenta.css';
 
@@ -26,6 +26,7 @@ function AgregarVenta() {
         ...doc.data()
       }));
 
+      console.log("Ventas recientes cargadas:", ventas);
       setVentasRecientes(ventas);
     } catch (error) {
       console.error('Error cargando ventas recientes:', error);
@@ -37,9 +38,10 @@ function AgregarVenta() {
   }, []);
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+ 
   const handleAgregar = async (e) => {
     e.preventDefault();
 
@@ -53,18 +55,23 @@ function AgregarVenta() {
     }
 
     try {
-      await addDoc(collection(dbFirebase, 'ventas'), {
+      const producto = {
         nombre: form.nombre,
         cantidad: Number(form.cantidad),
-        categoria: form.categoria,
-        descripcion: form.descripcion,
         precio: Number(form.precio),
-        rol: form.rol,
-        total: Number(form.precio) * Number(form.cantidad),
-        fecha: new Date(),
-      });
+      };
 
-      setMensaje('Venta registrada correctamente');
+      const venta = {
+        clienteId: "DUVTjhiDIJVgfbdZp0NfLRDfLYi1",  
+        fecha: Timestamp.now(),
+        metodoPago: 'efectivo',                     
+        productos: [producto],
+        total: producto.precio * producto.cantidad,
+      };
+
+      await addDoc(collection(dbFirebase, 'ventas'), venta);
+
+      setMensaje('✅ Venta registrada correctamente');
       setForm({
         cantidad: '',
         categoria: '',
@@ -73,19 +80,23 @@ function AgregarVenta() {
         precio: '',
         rol: 'admin',
       });
-      fetchVentasRecientes(); 
+
+      setTimeout(() => {
+        fetchVentasRecientes();
+      }, 600);
+
     } catch (error) {
-      console.error('Error al agregar venta:', error);
+      console.error('❌ Error al agregar venta:', error);
       setMensaje('Hubo un error al registrar la venta.');
     }
   };
 
   const formatoFecha = (fecha) => {
     if (!fecha) return '-';
-    if (fecha.seconds) { 
+    if (fecha.seconds) {
       return new Date(fecha.seconds * 1000).toLocaleString();
-    } 
-    if (fecha.toDate) { 
+    }
+    if (fecha.toDate) {
       return fecha.toDate().toLocaleString();
     }
     if (fecha instanceof Date) {
@@ -163,40 +174,47 @@ function AgregarVenta() {
 
       {mensaje && <p className="mensaje">{mensaje}</p>}
 
-      <h3>Ventas Recientes</h3>
-      <table className="tabla-ventas">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-            <th>Total</th>
-            <th>Rol</th>
-            <th>Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ventasRecientes.length === 0 ? (
+      <div style={{ marginTop: '20px' }}>
+        <h3>Ventas Recientes</h3>
+        <button onClick={fetchVentasRecientes} style={{ marginBottom: '10px' }}>
+          🔄 Recargar Lista Manualmente
+        </button>
+        <table className="tabla-ventas">
+          <thead>
             <tr>
-              <td colSpan="6">No hay ventas registradas</td>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
+              <th>Rol</th>
+              <th>Fecha</th>
             </tr>
-          ) : (
-            ventasRecientes.map((venta) => (
-              <tr key={venta.id}>
-                <td>{venta.nombre || '-'}</td>
-                <td>{venta.cantidad || 0}</td>
-                <td>${Number(venta.precio || 0).toFixed(2)}</td>
-                <td>${Number(venta.total || 0).toFixed(2)}</td>
-                <td>{venta.rol || '-'}</td>
-                <td>{formatoFecha(venta.fecha)}</td>
+          </thead>
+          <tbody>
+            {ventasRecientes.length === 0 ? (
+              <tr>
+                <td colSpan="6">No hay ventas registradas</td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              
+              ventasRecientes.flatMap((venta) =>
+                (venta.productos || []).map((producto, index) => (
+                  <tr key={`${venta.id}-${index}`}>
+                    <td>{producto.nombre || '-'}</td>
+                    <td>{producto.cantidad || 0}</td>
+                    <td>${Number(producto.precio || 0).toFixed(2)}</td>
+                    <td>${(producto.precio * producto.cantidad).toFixed(2)}</td>
+                    <td>{venta.rol || '-'}</td>
+                    <td>{formatoFecha(venta.fecha)}</td>
+                  </tr>
+                ))
+              )
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
+
 export default AgregarVenta;
-
-
