@@ -18,11 +18,15 @@ function Ventas() {
         let sumaCajero = 0;
 
         ventasSnapshot.forEach((doc) => {
-          const data = doc.data();
-          sumaTotal += data.total || 0;
-
-          if (data.rol === "cajero") {
-            sumaCajero += data.total || 0;
+          const data = doc.data()
+          if (data.productos) {
+            const totalProductos = data.productos.reduce((subtotal, prod) => {
+              return subtotal + (prod.total ?? (prod.cantidad || 0) * (prod.precio || 0));
+            }, 0);
+            sumaTotal += totalProductos;
+            if (data.rol === "cajero") {
+              sumaCajero += totalProductos;
+            }
           }
         });
 
@@ -45,9 +49,15 @@ function Ventas() {
         <p className="ventas-loading">Cargando datos...</p>
       ) : (
         <>
-          <p className="ventas-total">Total General: ${totalVentas.toFixed(2)}</p>
-          <p className="ventas-cajero">Total Ventas Cajero: ${ventasCajero.toFixed(2)}</p>
-          <p className="ventas-info">Este es el total acumulado de ventas registradas</p>
+          <p className="ventas-total">
+            Total General: ${totalVentas.toFixed(2)}
+          </p>
+          <p className="ventas-cajero">
+            Total Ventas Cajero: ${ventasCajero.toFixed(2)}
+          </p>
+          <p className="ventas-info">
+            Este es el total acumulado de ventas registradas (calculado desde productos)
+          </p>
         </>
       )}
     </div>
